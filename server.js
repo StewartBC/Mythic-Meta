@@ -5,12 +5,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3000;
 const app = express();
-
 app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 let affixes = "";
-
 function scrape(dungeon, affixes, res) {
   const results = [];
   let numCompleted = 0;
