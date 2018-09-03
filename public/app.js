@@ -8,6 +8,8 @@ $(".imgContainer").click(function (event) {
   $(this).children(".overlay").addClass("activeOverlay");
 });
 $("#submit").click(function (event) {
+  $("#results").addClass("hide");
+  $("#submit").addClass("hide");
   $("#tanksRowOne").empty();
   $("#tanksRowTwo").empty();
   $("#healersRowOne").empty();
@@ -32,6 +34,7 @@ $("#submit").click(function (event) {
     type: "GET",
     url: `/scrapes/${dungeon}`
   }).then(function (result) {
+    $("#submit").removeClass("hide");
     $("#tanksRowOne").empty();
     $("#healersRowOne").empty();
     $("#dpsRowOne").empty();
