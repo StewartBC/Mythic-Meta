@@ -17,7 +17,7 @@ $("#submit").click(function (event) {
   $("#dpsRowThree").empty();
   event.preventDefault();
   $("#loading").removeClass("gone");
-  $("#loading").append(`
+  $("#loading").html(`
   <div class="row">
   <div class="col-md-2">
   </div>
