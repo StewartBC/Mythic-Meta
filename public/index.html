@@ -5,84 +5,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <title>Mythic Meta</title>
   <style>
-    .jumbotron {
-      background-color: #463A59;
+    @font-face {
+      font-family: wow;
+      src: url(wow.ttf);
     }
 
     body {
-      background-color: #56486D;
+      background-color: #154A6B;
+      background-repeat: no-repeat;
+      background-image: url("images/background.jpg");
       color: white;
+      font-family: wow;
     }
 
-    .card-header {
-      background-color: #463A59;
-    }
-
-    .btn.sharp {
-      border-radius: 0;
-    }
-
-    .btn-primary {
-      background-color: #463A59;
-      margin-bottom: 25px;
-      width: 100%;
-      border-color: #463A59;
-    }
-
-    .btn-primary:hover,
-    .btn-primary:active,
-    .btn-primary:active,
-    .open>.dropdown-toggle.btn-primary {
-      outline: none;
-      background-color: #665582;
-      border-color: #665582;
-      box-shadow: none;
-    }
-
-    .btn-primary:active,
-    .open>.dropdown-toggle.btn-primary {
-      outline: none !important;
-      background-color: #665582 !important;
-      border-color: #665582 !important;
-      box-shadow: none;
-    }
-
-    .btn-primary:focus,
-    .open>.dropdown-toggle.btn-primary {
-      outline: none !important;
-      border: none;
-      border-color: #665582;
-      box-shadow: none;
-    }
-
-    .btn-link {
-      color: white;
-    }
-
-    .card-body {
-      background-color: #665582;
+    .jumbotron {
+      background-color: #0F364F;
+      margin-bottom: 0px;
     }
 
     img.dungeonImage {
       width: 100%;
+      border-radius: 10px;
       height: auto;
       margin: auto;
     }
 
     img.classImage {
-      width: 75%;
+      width: 50%;
       height: auto;
       margin: auto;
     }
@@ -93,29 +46,123 @@
       margin: auto;
     }
 
-    .centerThis {
-      margin: auto;
+    span {
+      font-size: 35px;
+      margin-right: 25px;
+      margin-left: 25px;
     }
 
-    .imgRow {
-      margin-bottom: 25px;
+    .activeImage {
+      opacity: 0.3;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
 
+    .activeOverlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 1;
+      transition: .5s ease;
+    }
+
+    .affixImage {
+      margin-right: 20px;
+      border-radius: 8px;
+    }
+
+    .btn-link {
+      color: white;
+    }
+
+    .btn-primary {
+      background-color: #0F364F;
+      font-size: 25px;
+      margin-bottom: 25px;
+      width: 100%;
+      border-color: #0F364F;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:active,
+    .open>.dropdown-toggle.btn-primary {
+      outline: none;
+      background-color: #2174A8;
+      border-color: #2174A8;
+      box-shadow: 0 8px 16px 0px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .btn-primary:active,
+    .open>.dropdown-toggle.btn-primary {
+      outline: none !important;
+      background-color: #154A6B !important;
+      border-color: #154A6B !important;
+      box-shadow: none;
+    }
+
+    .btn-primary:focus,
+    .open>.dropdown-toggle.btn-primary {
+      outline: none !important;
+      border: none;
+      border-color: #154A6B;
+      box-shadow: none;
+    }
+
+    .btn.sharp {
+      border-radius: 0;
     }
 
     .card {
       margin-bottom: 25px;
-      border-color: #56486D;
+      border-width: 0px !important;
+      border-color: #0F364F;
+      box-shadow: 0 8px 16px 0px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
-    #tanksRowOne,
-    #tanksRowTwo,
-    #healersRowOne,
-    #healersRowTwo,
-    #dpsRowOne,
-    #dpsRowTwo,
-    #dpsRowThree {
-      width: 100%;
+    .card-body {
+      background-color: #154A6B;
+    }
+
+    .card-header {
+      background-color: #0F364F;
+      font-size: 35px;
+    }
+
+    .centerThis {
       margin: auto;
+    }
+
+    .gone {
+      display: none;
+    }
+
+    .hide {
+      visibility: hidden;
+    }
+
+    .images {
+      background-color: #154A6B;
+      border-radius: 5px;
+      margin-top: 25px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 16px 0px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .imgContainer:hover .overlay {
+      opacity: 1;
+    }
+
+    .imgContainer:hover .dungeonImage {
+      opacity: 0.5;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .imgRow {
       margin-bottom: 25px;
     }
 
@@ -131,35 +178,9 @@
       transition: .5s ease;
     }
 
-    .imgContainer:hover .overlay {
-      opacity: 1;
-    }
-
-    .activeOverlay {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
-      width: 100%;
-      opacity: 1;
-      transition: .5s ease;
-    }
-
-    .imgContainer:hover .dungeonImage {
-      opacity: 0.5;
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-
-    .activeImage {
-      opacity: 0.5;
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-
     .text {
       color: white;
-      font-size: 20px;
+      font-size: 30px;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -168,176 +189,232 @@
       transform: translate(-50%, -50%);
       text-align: center;
     }
-    
-    .gone {
-      display: none;
+
+    .lead {
+      font-size: 27px;
     }
 
-    .hide {
-      visibility: hidden;
+    #loading {
+      margin-top: 250px;
     }
+
+    #tanksRowOne,
+    #tanksRowTwo,
+    #healersRowOne,
+    #healersRowTwo,
+    #dpsRowOne,
+    #dpsRowTwo,
+    #dpsRowThree {
+      width: 100%;
+      margin: auto;
+      margin-bottom: 25px;
+    }
+
+    #another {
+      background-color: #154A6B;
+      width: 57.14%;
+    }
+
   </style>
 
 </head>
 
 <body>
-  <div id="wrapper">
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">Mythic Meta</h1>
-        <p class="lead">Select your keystone and click submit to see the best classes for each role for that dungeon given this week's affixes.</p>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row imgRow">
-      <div class="col-md-4">
-        <div class="imgContainer" data-dungeon="ataldazar">
-          <img class="dungeonImage" src="images/Atal'Dazar.jpeg" alt="Atal'Dazar">
-          <div class="overlay">
-            <div class="text">Atal'Dazar</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="imgContainer" data-dungeon="freehold">
-          <img class="dungeonImage" src="images/Freehold.jpeg" alt="Freehold">
-          <div class="overlay">
-            <div class="text">Freehold</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="imgContainer" data-dungeon="kings-rest">
-          <img class="dungeonImage" src="images/Kings' Rest.jpeg" alt="Kings' Rest">
-          <div class="overlay">
-            <div class="text">Kings' Rest</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row imgRow">
-      <div class="col-md-4">
-        <div class="imgContainer" data-dungeon="shrine-of-the-storm">
-          <img class="dungeonImage" src="images/Shrine of the Storm.jpeg" alt="Shrine of the Storm">
-          <div class="overlay">
-            <div class="text">Shrine of the Storm</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="imgContainer" data-dungeon="siege-of-boralus">
-          <img class="dungeonImage" src="images/Siege of Boralus.jpeg" alt="Siege of Boralus">
-          <div class="overlay">
-            <div class="text">Siege of Boralus</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="imgContainer" data-dungeon="temple-of-sethraliss">
-          <img class="dungeonImage" src="images/Temple of Sethraliss.jpeg" alt="Temple of Sethraliss">
-          <div class="overlay">
-            <div class="text">Temple of Sethraliss</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row imgRow">
-      <div class="col-md-4">
-        <div class="imgContainer" data-dungeon="the-motherlode">
-          <img class="dungeonImage" src="images/The Motherlode.jpeg" alt="The Motherlode">
-          <div class="overlay">
-            <div class="text">The Motherlode</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="imgContainer" data-dungeon="the-underrot">
-          <img class="dungeonImage" src="images/The Underrot.jpeg" alt="The Underrot">
-          <div class="overlay">
-            <div class="text">The Underrot</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="imgContainer" data-dungeon="tol-dagor">
-          <img class="dungeonImage" src="images/Tol Dagor.jpeg" alt="Tol Dagor">
-          <div class="overlay">
-            <div class="text">Tol Dagor</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row imgRow">
-      <div class="col-md-4">
-      </div>
-      <div class="col-md-4">
-        <div class="imgContainer" data-dungeon="waycrest-manor">
-          <img class="dungeonImage" src="images/Waycrest Manor.jpeg" alt="Waycrest Manor">
-          <div class="overlay">
-            <div class="text">Waycrest Manor</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-4">
-      </div>
-      <div class="col-md-4">
-        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
-      </div>
-      <div class="col-md-4">
-      </div>
-    </div>
-    <div id="loading">
-    </div>
-    <div id="results" class="row hide">
-      <div class="col-md-12">
-        <div class="card classCard">
-          <div class="card-header">
-            Top Tanks
-          </div>
-          <div id="tankCard" class="card-body">
-            <div class="row" id="tanksRowOne">
-            </div>
-            <div class="row" id="tanksRowTwo">
-            </div>
-          </div>
+  <div class="background">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <h1 class="display-4">Mythic Meta</h1>
+          <p class="lead startHeader">Select your dungeon and press start too see the best classes for each role for that dungeon given this week's affixes.</p>
         </div>
-        <div class="card">
-          <div class="card-header">
-            Top Healers
-          </div>
-          <div id="healerCard" class="card-body">
-            <div class="row" id="healersRowOne">
-            </div>
-            <div class="row" id="healersRowTwo">
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            Top DPS
-          </div>
-          <div id="dpsCard" class="card-body">
-            <div class="row" id="dpsRowOne">
-            </div>
-            <div class="row" id="dpsRowTwo">
-            </div>
-            <div class="row" id="dpsRowThree">
-            </div>
-          </div>
+        <div class="col-md-5">
+          <h1 id="affixes" class="display-4">This Week's Affixes:</h2>
         </div>
       </div>
     </div>
-  </div>
-  </div>
+    <div class="container">
+      <div class="images">
+        <div class="row imgRow">
+          <div class="col-md-4">
+            <div class="imgContainer" data-dungeon="ataldazar">
+              <img class="dungeonImage firstRowImages" src="images/Atal'Dazar.jpeg" alt="Atal'Dazar">
+              <div class="overlay">
+                <div class="text">Atal'Dazar</div>
+              </div>
+              <div class="hide imgText">
+                <div class="text">Atal'Dazar</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="imgContainer" data-dungeon="freehold">
+              <img class="dungeonImage firstRowImages" src="images/Freehold.jpeg" alt="Freehold">
+              <div class="overlay">
+                <div class="text">Freehold</div>
+              </div>
+              <div class="hide imgText">
+                <div class="text">Freehold</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="imgContainer" data-dungeon="kings-rest">
+              <img class="dungeonImage firstRowImages" src="images/Kings' Rest.jpeg" alt="Kings' Rest">
+              <div class="overlay">
+                <div class="text">Kings' Rest</div>
+              </div>
+              <div class="hide imgText">
+                <div class="text">Kings' Rest</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row imgRow">
+          <div class="col-md-4">
+            <div class="imgContainer" data-dungeon="shrine-of-the-storm">
+              <img class="dungeonImage" src="images/Shrine of the Storm.jpeg" alt="Shrine of the Storm">
+              <div class="overlay">
+                <div class="text">Shrine of the Storm</div>
+              </div>
+              <div class="hide imgText">
+                <div class="text">Shrine of the Storm</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="imgContainer" data-dungeon="siege-of-boralus">
+              <img class="dungeonImage" src="images/Siege of Boralus.jpeg" alt="Siege of Boralus">
+              <div class="overlay">
+                <div class="text">Siege of Boralus</div>
+              </div>
+              <div class="hide imgText">
+                <div class="text">Siege of Boralus</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="imgContainer" data-dungeon="temple-of-sethraliss">
+              <img class="dungeonImage" src="images/Temple of Sethraliss.jpeg" alt="Temple of Sethraliss">
+              <div class="overlay">
+                <div class="text">Temple of Sethraliss</div>
+              </div>
+              <div class="hide imgText">
+                <div class="text">Temple of Sethraliss</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row imgRow">
+          <div class="col-md-4">
+            <div class="imgContainer" data-dungeon="the-motherlode">
+              <img class="dungeonImage" src="images/The Motherlode.jpeg" alt="The Motherlode">
+              <div class="overlay">
+                <div class="text">The Motherlode</div>
+              </div>
+              <div class="hide imgText">
+                <div class="text">The Motherlode</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="imgContainer" data-dungeon="the-underrot">
+              <img class="dungeonImage" src="images/The Underrot.jpeg" alt="The Underrot">
+              <div class="overlay">
+                <div class="text">The Underrot</div>
+              </div>
+              <div class="hide imgText">
+                <div class="text">The Underrot</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="imgContainer" data-dungeon="tol-dagor">
+              <img class="dungeonImage" src="images/Tol Dagor.jpeg" alt="Tol Dagor">
+              <div class="overlay">
+                <div class="text">Tol Dagor</div>
+              </div>
+              <div class="hide imgText">
+                <div class="text">Tol Dagor</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row imgRow">
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+            <div class="imgContainer" data-dungeon="waycrest-manor">
+              <img class="dungeonImage" src="images/Waycrest Manor.jpeg" alt="Waycrest Manor">
+              <div class="overlay">
+                <div class="text">Waycrest Manor</div>
+              </div>
+              <div class="hide imgText">
+                <div class="text">Waycrest Manor</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+            <button id="submit" type="submit" class="btn btn-primary">Start Dungeon</button>
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div>
+      </div>
+      <div id="loading">
+      </div>
+      <div id="results" class="row hide">
+        <div class="col-md-12">
+          <div class="card classCard">
+            <div class="card-header tankHeader">
+              Top Tanks
+            </div>
+            <div id="tankCard" class="card-body">
+              <div class="row" id="tanksRowOne">
+              </div>
+              <div class="row" id="tanksRowTwo">
+              </div>
+            </div>
+          </div>
+          <div class="card gone">
+            <div class="card-header healerHeader">
+              Top Healers
+            </div>
+            <div id="healerCard" class="card-body">
+              <div class="row" id="healersRowOne">
+              </div>
+              <div class="row" id="healersRowTwo">
+              </div>
+            </div>
+          </div>
+          <div class="card gone">
+            <div class="card-header dpsHeader">
+              Top DPS
+            </div>
+            <div id="dpsCard" class="card-body">
+              <div class="row" id="dpsRowOne">
+              </div>
+              <div class="row" id="dpsRowTwo">
+              </div>
+              <div class="row" id="dpsRowThree">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
   <script src="app.js"></script>
 </body>
 

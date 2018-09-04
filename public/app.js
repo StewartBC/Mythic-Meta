@@ -1,13 +1,33 @@
 let dungeon = "";
-$(".imgContainer").click(function (event) {
+let dungeonString = "";
+
+$(document).on("click", "#another", function(event) {
+  location.reload();
+});
+
+$.ajax({
+  type: "GET",
+  url: "https://raider.io/api/v1/mythic-plus/affixes?region=us&locale=en"
+}).then(function(result) {
+  result.affix_details.forEach(affix => {
+    $("#affixes").append(`
+    <img data-toggle="tooltip" data-placement="top" title="${affix.description}" class="affixImage" src="images/${affix.name}.jpg">
+  `);
+  });
+   $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+});
+$(".imgContainer").click(function () {
   $(".imgContainer").removeClass("activeImage");
   $(".overlay").removeClass("activeOverlay");
-  event.preventDefault();
   dungeon = $(this).attr("data-dungeon");
+  dungeonString = $(this).children(".overlay").children(".text").text();
   $(this).addClass("activeImage");
   $(this).children(".overlay").addClass("activeOverlay");
+  $(".imgText").addClass("hide");
+  $(this).children(".imgText").removeClass("hide");
 });
 $("#submit").click(function (event) {
+  event.preventDefault();
   $("#results").addClass("hide");
   $("#submit").addClass("hide");
   $("#tanksRowOne").empty();
@@ -17,7 +37,7 @@ $("#submit").click(function (event) {
   $("#dpsRowOne").empty();
   $("#dpsRowTwo").empty();
   $("#dpsRowThree").empty();
-  event.preventDefault();
+  $(".images").addClass("gone");
   $("#loading").removeClass("gone");
   $("#loading").html(`
   <div class="row">
@@ -34,12 +54,20 @@ $("#submit").click(function (event) {
     type: "GET",
     url: `/scrapes/${dungeon}`
   }).then(function (result) {
+    $("#hideMe").addClass("gone");
+    $(".card").removeClass("gone");
     $("#submit").removeClass("hide");
     $("#tanksRowOne").empty();
     $("#healersRowOne").empty();
     $("#dpsRowOne").empty();
     $("#results").removeClass("hide");
     $("#loading").addClass("gone");
+    $(".tankHeader").text(`Top Tanks for ${dungeonString}`);
+    $(".healerHeader").text(`Top Healers for ${dungeonString}`);
+    $(".dpsHeader").text(`Top DPS for ${dungeonString}`);
+    $(".startHeader").html(`
+      <button id="another" type="submit" class="btn btn-primary">Select Another Dungeon</button>
+    `)
     var tankSort = [];
     var healerSort = [];
     var dpsSort = [];
