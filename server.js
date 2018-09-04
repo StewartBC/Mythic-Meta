@@ -107,6 +107,7 @@ function scrape(dungeon, affixes, res) {
         const result = {
           tanks: {
             deathKnight: {
+              name: "Death Knight",
               num: 0,
               score: 0,
               average: 0,
@@ -115,6 +116,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             demonHunter: {
+              name: "Demon Hunter",
               num: 0,
               score: 0,
               average: 0,
@@ -123,6 +125,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             paladin: {
+              name: "Paladin",
               num: 0,
               score: 0,
               average: 0,
@@ -131,6 +134,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             warrior: {
+              name: "Warrior",
               num: 0,
               score: 0,
               average: 0,
@@ -139,6 +143,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             monk: {
+              name: "Monk",
               num: 0,
               score: 0,
               average: 0,
@@ -147,6 +152,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             druid: {
+              name: "Druid",
               num: 0,
               score: 0,
               average: 0,
@@ -157,6 +163,7 @@ function scrape(dungeon, affixes, res) {
           },
           healers: {
             priest: {
+              name: "Priest",
               num: 0,
               score: 0,
               average: 0,
@@ -165,6 +172,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             paladin: {
+              name: "Paladin",
               num: 0,
               score: 0,
               average: 0,
@@ -173,6 +181,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             druid: {
+              name: "Druid",
               num: 0,
               score: 0,
               average: 0,
@@ -181,6 +190,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             shaman: {
+              name: "Shaman",
               num: 0,
               score: 0,
               average: 0,
@@ -189,6 +199,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             monk: {
+              name: "Monk",
               num: 0,
               score: 0,
               average: 0,
@@ -199,6 +210,7 @@ function scrape(dungeon, affixes, res) {
           },
           dps: {
             demonHunter: {
+              name: "Demon Hunter",
               num: 0,
               score: 0,
               average: 0,
@@ -207,6 +219,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             rogue: {
+              name: "Rogue",
               num: 0,
               score: 0,
               average: 0,
@@ -215,6 +228,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             paladin: {
+              name: "Paladin",
               num: 0,
               score: 0,
               average: 0,
@@ -223,6 +237,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             hunter: {
+              name: "Hunter",
               num: 0,
               score: 0,
               average: 0,
@@ -231,6 +246,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             priest: {
+              name: "Priest",
               num: 0,
               score: 0,
               average: 0,
@@ -239,6 +255,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             deathKnight: {
+              name: "Death Knight",
               num: 0,
               score: 0,
               average: 0,
@@ -247,6 +264,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             shaman: {
+              name: "Shaman",
               num: 0,
               score: 0,
               average: 0,
@@ -255,6 +273,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             mage: {
+              name: "Mage",
               num: 0,
               score: 0,
               average: 0,
@@ -263,6 +282,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             warlock: {
+              name: "Warlock",
               num: 0,
               score: 0,
               average: 0,
@@ -271,6 +291,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             monk: {
+              name: "Monk",
               num: 0,
               score: 0,
               average: 0,
@@ -279,6 +300,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             druid: {
+              name: "Druid",
               num: 0,
               score: 0,
               average: 0,
@@ -287,6 +309,7 @@ function scrape(dungeon, affixes, res) {
               }
             },
             warrior: {
+              name: "Warrior",
               num: 0,
               score: 0,
               average: 0,

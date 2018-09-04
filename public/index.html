@@ -40,7 +40,7 @@
       width: 100%;
       height: auto;
       margin: auto;
-      margin-top: 150px;
+      margin-top: 250px;
     }
 
     span {
@@ -50,8 +50,12 @@
     }
 
     .activeImage {
+      margin-left: 12px !important;
+      margin-top: 6px !important;
+      width: 90% !important;
+      height: auto !important;
       opacity: 0.3;
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      box-shadow: 0 50px 100px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
     .activeOverlay {
@@ -69,6 +73,21 @@
     .affixImage {
       margin-right: 20px;
       border-radius: 8px;
+    }
+
+    .bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+    .bs-tooltip-bottom .arrow::before {
+      border-bottom-color: #1C618C !important;
+    }
+
+    .bs-tooltip-auto[x-placement^=top] .arrow::before,
+    .bs-tooltip-top .arrow::before {
+      border-top-color: #1C618C !important;
+    }
+
+    .bs-tooltip-auto[x-placement^=right] .arrow::before,
+    .bs-tooltip-right .arrow::before {
+      border-right-color: #1C618C !important;
     }
 
     .btn-link {
@@ -163,6 +182,10 @@
       margin-bottom: 25px;
     }
 
+    .lead {
+      font-size: 27px;
+    }
+
     .overlay {
       position: absolute;
       top: 0;
@@ -187,8 +210,8 @@
       text-align: center;
     }
 
-    .lead {
-      font-size: 27px;
+    .tooltip-inner {
+      background-color: #1C618C;
     }
 
     #tanksRowOne,
@@ -207,7 +230,6 @@
       background-color: #154A6B;
       width: 57.14%;
     }
-
   </style>
 
 </head>
@@ -354,24 +376,25 @@
           <div class="col-md-4">
           </div>
           <div class="col-md-4">
-            <button id="submit" type="submit" class="btn btn-primary">Start Dungeon</button>
+            <button data-toggle="tooltip" data-placement="bottom" data-type="primary" data-trigger="manual" title="Please select a dungeon before starting."
+              id="submit" type="submit" class="btn btn-primary">Start Dungeon</button>
           </div>
           <div class="col-md-4">
           </div>
         </div>
       </div>
       <div class="row">
-          <div class="col-md-4">
-          
-            </div>
-            <div class="col-md-4">
-                <div id="loading">
-                  </div>
-              </div>
+        <div class="col-md-4">
 
-            <div class="col-md-4">
-          
-              </div>
+        </div>
+        <div class="col-md-4">
+          <div id="loading">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
 
       </div>
 
