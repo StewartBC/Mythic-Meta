@@ -16,9 +16,7 @@ function scrape(dungeon, affixes, res) {
     request(`https://www.wowprogress.com/mythic_plus_all/char_rating/next/${i}/class.${dungeon}/affixes.${affixes}#char_rating%60`, function (error, response, html) {
       if (error) {
         numCompleted++;
-      }
-      console.log(i);
-      if (html) {
+      }      if (html) {
         const C = cheerio.load(html);
         C("tr").each(function (i, element) {
           let run = {
@@ -105,7 +103,6 @@ function scrape(dungeon, affixes, res) {
       }
     }).then(function () {
       numCompleted++;
-      console.log("num: " + numCompleted)
       if (numCompleted === 83) {
         const result = {
           tanks: {
@@ -430,7 +427,6 @@ function scrape(dungeon, affixes, res) {
         result.dps.warlock.calcAverage();
         result.dps.mage.calcAverage();
         result.dps.deathKnight.calcAverage();
-        console.log(result);
         res.json(result);
       }
     });
