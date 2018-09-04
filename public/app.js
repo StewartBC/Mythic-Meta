@@ -44,7 +44,7 @@ $("#submit").click(function (event) {
   <div class="col-md-2">
   </div>
     <div class="col-md-8">
-      <img class="loadingImage" src="images/loading.gif">
+      <img class="loadingImage" src="images/loading.svg">
     </div>
     <div class="col-md-2">
     </div>
