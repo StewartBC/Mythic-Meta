@@ -13,7 +13,7 @@ function scrape(dungeon, affixes, res) {
   const results = [];
   let numCompleted = 0;
   for (let i = -1; i < 84; i++) {
-    request(`https://www.wowprogress.com/mythic_plus_all/char_rating/next/${i}/class.${dungeon}/affixes.${affixes}#char_rating%60`, function (error, response, html) {
+    request(`https://www.wowprogress.com/mythic_plus_all/char_rating/next/${i}/class.${dungeon}#char_rating`, function (error, response, html) {
       if (error) {
         numCompleted++;
       }      if (html) {
